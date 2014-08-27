@@ -66,6 +66,7 @@ import org.apache.pig.newplan.logical.relational.LogicalPlan;
 import org.apache.pig.newplan.logical.relational.LogicalPlanData;
 import org.apache.pig.newplan.logical.relational.LogicalSchema;
 import org.apache.pig.test.utils.Identity;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -77,6 +78,11 @@ public class TestLogicalPlanBuilder {
     public void setUp() throws Exception {
     	pigServer = new PigServer( pigContext );
     	pigContext.connect();
+    }
+
+    @After
+    public void tearDown() {
+        pigServer.shutdown();
     }
 
     @Test
